@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Outubro Rosa | Mensagem de Apoio</title>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #f8b8d0, #e8b6f5, #fce4ec);
+      transition: background 0.5s;
+    }
+    
+    .present {
+      width: 100%;
+      max-width: 430px;
+      min-height: 400px;
+      padding: 35px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      text-align: center;
+      
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 28px;
+      box-shadow: 0 15px 40px rgba(111, 45, 90, 0.18);
+      
+      animation: aparecer 0.8s ease;
+    }
+    
+    .icone {
+      font-size: 55px;
+    }
+    
+    h2 {
+      margin: 0;
+      color: #752653;
+      font-size: clamp(25px, 6vw, 34px);
+      line-height: 1.3;
+    }
+    
+    .descricao {
+      margin: 0;
+      color: #79536e;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    button {
+      width: 100%;
+      min-height: 60px;
+      padding: 15px 20px;
+      color: white;
+      background: linear-gradient(135deg, #d94f91, #a94bc5);
+      border: none;
+      border-radius: 16px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(169, 75, 150, 0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(169, 75, 150, 0.35);
+    }
+    
+    /* Tela após receber a mensagem */
+    
+    body.tela-mensagem {
+      background: linear-gradient(145deg, #f7c5d9, #e8c8f5, #fff0f5);
+      padding: 25px;
+    }
+    
+    .present.mostrar-mensagem {
+      width: 100%;
+      max-width: 700px;
+      min-height: auto;
+      padding: 30px 15px;
+      gap: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    
+    .mostrar-mensagem #mensagem {
+      margin: 0;
+      color: #70254f;
+      font-size: clamp(27px, 6vw, 46px);
+      font-weight: bold;
+      line-height: 1.5;
+      text-align: center;
+      animation: aparecer 0.9s ease;
+    }
+    
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .present {
+        min-height: 350px;
+        padding: 25px 20px;
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <main class="present" id="cartao">
+    <div class="icone">🎀</div>
+    
+    <h2 id="titulo">
+      Receba sua mensagem de apoio
+    </h2>
+    
+    <p class="descricao">
+      Um gesto de carinho pode fazer toda a diferença.
+      Você merece cuidado, apoio e acolhimento.
+    </p>
+    
+    <button id="botao" onclick="receberMensagem()">
+      Receber mensagem 💗
+    </button>
+    
+    <p id="mensagem" aria-live="polite"></p>
+  </main>
+  
+  <script>
+    const mensagens = [
+      "Você não está sozinha. Permita-se receber apoio e carinho. 💗",
+      
+      "Sua vida importa, sua saúde importa e você merece cuidado.",
+      
+      "A prevenção é um gesto de amor por você mesma. Cuide-se! 🌸",
+      
+      "Ter uma rede de apoio faz diferença. Não tenha medo de pedir ajuda.",
+      
+      "Você é mais forte do que imagina, mas não precisa ser forte o tempo todo.",
+      
+      "Reserve um momento para cuidar de si. Você também merece atenção.",
+      
+      "Informação, prevenção e apoio podem salvar vidas.",
+      
+      "Você merece acolhimento, respeito e cuidado em todas as fases da vida.",
+      
+      "Não enfrente tudo sozinha. Compartilhar suas preocupações também é coragem.",
+      
+      "Neste Outubro Rosa, lembre-se: cuidar de você é um ato de amor. 🎀",
+      
+      "Seu bem-estar importa. Cuide de si com carinho e sem culpa.",
+      
+      "Apoiar é ouvir, acolher e caminhar junto, sem julgamentos.",
+        "Cuidar da saúde das mamas é um gesto de atenção e carinho consigo mesma.",
+  
+  "A prevenção começa quando transformamos informação em atitudes de cuidado.",
+  
+  "Conhecer os fatores de risco e manter o acompanhamento de saúde ajuda a cuidar de você.",
+  
+  "Percebeu alguma mudança nas mamas? Procure um profissional de saúde para receber orientação.",
+  
+  "O câncer de mama pode afetar diferentes mulheres. Informação e acompanhamento são essenciais.",
+  
+  "Não deixe as dúvidas sobre o câncer de mama sem resposta. Busque fontes confiáveis.",
+  
+  "O cuidado com a saúde não deve depender da idade, da aparência ou da condição financeira.",
+  
+  "Compartilhar informação correta pode ajudar alguém a reconhecer a importância do cuidado.",
+  
+  "O Outubro Rosa é um convite à conscientização, mas a atenção à saúde deve durar o ano inteiro.",
+  
+  "A mamografia e outros cuidados devem seguir as recomendações adequadas para cada mulher.",
+  
+  "O medo não precisa ser enfrentado sozinho. Conversar e buscar orientação pode ajudar.",
+  
+  "Oferecer apoio a uma mulher em tratamento é respeitar seus sentimentos e suas necessidades.",
+  
+  "Cada jornada de tratamento é única e merece compreensão, paciência e respeito.",
+  
+  "Não defina uma mulher pela doença que ela enfrenta. Sua história vai muito além disso.",
+  
+  "Acompanhar alguém em uma consulta pode ser uma forma simples e valiosa de demonstrar apoio.",
+  
+  "O diagnóstico não apaga os sonhos, a identidade ou a importância de nenhuma mulher.",
+  
+  "A luta contra o câncer de mama também exige informação acessível e atendimento de qualidade.",
+  
+  "Incentivar o cuidado com a saúde é importante, mas acolher sem pressionar também faz diferença.",
+  
+  "Que toda mulher encontre informação confiável, profissionais preparados e pessoas que a apoiem.",
+  
+  "Neste Outubro Rosa, transforme a conscientização em cuidado, respeito e atitudes durante todo o ano. 💗"
+    ];
+    
+    let mensagemExibida = false;
+    
+    function receberMensagem() {
+      if (mensagemExibida) return;
+      
+      mensagemExibida = true;
+      
+      const indice = Math.floor(Math.random() * mensagens.length);
+      
+      document.getElementById("titulo").remove();
+      document.querySelector(".icone").remove();
+      document.querySelector(".descricao").remove();
+      document.getElementById("botao").remove();
+      
+      document.getElementById("mensagem").textContent =
+        mensagens[indice];
+      
+      document.getElementById("cartao")
+        .classList.add("mostrar-mensagem");
+      
+      document.body.classList.add("tela-mensagem");
+    }
+  </script>
+  
+</body>
+
+</html>
